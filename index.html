@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Para mi niña 💞</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Poppins:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    /* Estilos generales */
+    body {
+      background-color: rgb(255, 239, 241);
+      font-family: "Poppins", sans-serif;
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* Contenedor principal */
+    .contenedor {
+      background-color: rgba(255, 255, 255, 0.88);
+      box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
+      border-radius: 30px;
+      padding: 40px;
+      width: 80%;
+      max-width: 800px;
+      text-align: center;
+      animation: aparecer 1.2s ease;
+    }
+
+    /* Animación de aparecer */
+    @keyframes aparecer {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Titulos */
+    h1 {
+      font-size: 32px;
+      margin-bottom: 5px;
+      color: #ff5c8a;
+      transition: all 0.3s ease;
+    }
+    h1:hover {
+      transform: scale(1.05);
+      color: #ff85a2;
+    }
+
+    /* Parrafos */
+    p {
+      color: gray;
+      margin-bottom: 20px;
+    }
+
+    /* Boton de carta */
+    .btn-carta {
+      background: linear-gradient(135deg, #ffb6c1, #ff85a2);
+      color: white;
+      border: none;
+      border-radius: 25px;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin-bottom: 20px;
+    }
+    .btn-carta:hover {
+      background: linear-gradient(135deg, #ff85a2, #ffb6c1);
+      transform: scale(1.05);
+    }
+    .btn-carta:active {
+      transform: scale(0.95);
+    }
+
+    /* Panel de carta */
+    .carta-panel {
+      background-color: white;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      box-shadow: 0px 0px 30px rgba(14, 0, 8, 0.15);
+      border-radius: 30px;
+      padding: 20px;
+      height: 400px;
+      overflow: hidden;
+      text-align: left;
+      margin: 0 auto;
+      max-width: 600px;
+    }
+
+    /* Carta */
+    .carta {
+      font-size: 18px;
+      line-height: 1.5;
+      white-space: normal;
+      overflow-y: auto;
+      height: 100%;
+      padding-right: 10px;
+      scrollbar-width: thin;
+      scrollbar-color: #ffadd67e #f5f5f5;
+    }
+
+    /* Scrollbar */
+    .carta::-webkit-scrollbar {
+      width: 8px;
+    }
+    .carta::-webkit-scrollbar-thumb {
+      background-color: #ffadd67e;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="contenedor">
+    <h1>Feliz un mes, te quiero mucho 💞</h1>
+    <p>Una pequeña sorpresa, un pequeño detalle, pero con todo mi amor.</p>
+    <button class="btn-carta" id="btn-carta">
+      <i class="fa-solid fa-heart"></i><span> Mostrar Carta</span>
+    </button>
+    <div class="carta-panel">
+      <div class="carta" id="carta"></div>
+    </div>
+  </div>
+
+  <script>
+    const text = "Hoy 4/11/2025, celebramos nuestro primer mes juntos, y no puedo dejar de sonreír al pensar en todo lo que hemos compartido en tan poco tiempo. Me parece increíble cómo llegaste a mi vida, en el momento más inesperado, y te convertiste en una parte tan bonita de ella. Cada día a tu lado ha sido una nueva experiencia, llena de risas, mensajes que me sacan una sonrisa, que iluminan mis días, y momentos que deseo guardar para siempre. Me haces sentir la paz que tanto necesitaba, me haces sentir querido, y eso no tiene precio. A veces me sorprendo recordando los pequeños detalles, esas conversaciones que se alargan sin darnos cuenta, las trasnochadas, las tonterías que nos hacen reír, la manera en que me haces sentir querido y comprendido. Todo eso, aunque parezca simple, se ha vuelto muy especial para mí. Gracias por los momentos, por ser tan tú, por demostrarme que el cariño sincero todavía existe, por hacerme sentir que este mes puede ser el comienzo de algo muy bonito. Un mes puede parecer poco, pero contigo ha significado muchísimo. Ojalá sigamos sumando más y más meses, más momentos y recuerdos, siempre con esa ternura y ese amor que nos hace únicos. Porque si este mes fue así de especial, no puedo imaginar lo lindo que será todo lo que venga después. Te quiero mucho, Jennifer Odalyz Suárez 💞";
+
+    const element = document.getElementById("carta");
+    const startBtn = document.getElementById("btn-carta");
+    let i = 0;
+
+    function type() {
+      if (i < text.length) {
+        element.textContent += text.charAt(i);
+        i++;
+        setTimeout(type, 25);
+      }
+    }
+
+    startBtn.addEventListener("click", () => {
+      element.textContent = "";
+      i = 0;
+      type();
+    });
+  </script>
+</body>
+</html>
